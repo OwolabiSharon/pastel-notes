@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "rootDir": "./src",
+    "esModuleInterop": true,
+    "lib": ["es6", "DOM"],
+    "outDir": "dist",
+    "allowJs": true,
+    "checkJs": false,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "emitDecoratorMetadata": true,
+    "strict": true,
+    "typeRoots": [
+      "@types",
+      "src/node_modules/@types",
+      "@types/express/index.d.ts"
+    ],
+    "paths": {
+      "*": ["./*", "./src/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist", "./lib"]
+}
