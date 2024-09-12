@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express';
 import mongoose from 'mongoose';
 import * as dotEnv from 'dotenv';
 import cors from 'cors';
+import router from './routes/routesConfig';
 
 dotEnv.config();
 
@@ -15,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 // Enable CORS
 app.use(cors());
 
-
+app.use('/api', router);
 // 404 Handler for undefined routes
 app.use((req: Request, res: Response) => {
   res.status(404).json({ message: 'Not found' });
