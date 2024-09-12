@@ -10,7 +10,7 @@ const Page = () => {
   const [showNoteForm, setShowNoteForm] = useState(false);
   const [noteTitle, setNoteTitle] = useState("");
   const [noteContent, setNoteContent] = useState("");
-  const [notes, setNotes] = useState<{ id: string; title: string; content: string }[]>([]);
+  const [notes, setNotes] = useState<{ _id: string; title: string; content: string }[]>([]);
   const [selectedNote, setSelectedNote] = useState<number | null>(null);
   const [isEditing, setIsEditing] = useState(false);
   const [isNewNote, setIsNewNote] = useState(true);
@@ -77,7 +77,7 @@ const Page = () => {
     if (selectedNote !== null) {
       try {
         const updatedNote = await updateNote(
-          notes[selectedNote].id,
+          notes[selectedNote]._id,
           noteTitle,
           noteContent
         );
@@ -92,7 +92,7 @@ const Page = () => {
   };
 
   const handleDeleteNote = async (index: number) => {
-    const noteId = notes[index].id;
+    const noteId = notes[index]._id;
     try {
       await deleteNote(noteId);
       setNotes((prevNotes) => prevNotes.filter((_, i) => i !== index));
