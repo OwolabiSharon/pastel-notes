@@ -1,4 +1,4 @@
-# pastel-notes
+# Pastel Notes
 A full-stack notes application for creating, updating, and managing personal notes.
 
 ## About the Project
