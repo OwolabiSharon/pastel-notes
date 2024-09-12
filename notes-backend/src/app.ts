@@ -7,7 +7,7 @@ import router from './routes/routesConfig';
 dotEnv.config();
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 
 // Bodyparser middleware
 app.use(express.json());

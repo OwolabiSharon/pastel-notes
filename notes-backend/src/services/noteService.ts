@@ -54,3 +54,26 @@ export const deleteNote = async (req: Request, res: Response) => {
     res.status(500).json({ error: 'Error deleting note' });
   }
 };
+
+// Edit a note by ID with validation
+export const editNote = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const { title, content } = req.body;
+
+    // Validate input
+    const { error } = noteSchema.validate(req.body);
+    if (error) return res.status(400).json({ error: error.details[0].message });
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ error: 'Invalid ID' });
+    }
+
+    const updatedNote = await Note.findByIdAndUpdate(id, { title, content }, { new: true });
+    if (!updatedNote) return res.status(404).json({ error: 'Note not found' });
+
+    res.status(200).json(updatedNote);
+  } catch (error) {
+    res.status(500).json({ error: 'Error updating note' });
+  }
+};

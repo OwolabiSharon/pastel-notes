@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createNote, getNotes, deleteNote } from '../services/noteService';
+import { createNote, getNotes, deleteNote, editNote } from '../services/noteService';
 
 const router = Router();
 
@@ -12,5 +12,6 @@ router.get('/notes', getNotes);
 // Route to delete a note by ID
 router.delete('/notes/:id', deleteNote);
 
+router.put('/notes/:id', editNote);
 
 export default router;
