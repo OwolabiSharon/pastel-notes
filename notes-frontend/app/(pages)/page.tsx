@@ -111,7 +111,7 @@ const Page = () => {
   return (
     <div>
       <div className="h-screen w-screen md:hidden flex items-center justify-center">
-        <span className="italic">Coming soon :)</span>
+        <span className="italic">Mobile view Coming soon :)</span>
       </div>
       {/* desktop */}
       <div className="h-screen w-screen md:flex hidden">
